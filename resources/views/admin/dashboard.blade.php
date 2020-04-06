@@ -4,15 +4,15 @@
         @foreach($blocks as $block)
             <div class="row">
                 <div class="col-sm">
-                    <a href="#">{{$block->title}}</a>
+                    <a href="{{route('admin.block.edit', $block)}}">{{$block->title}}</a>
                 </div>
                 <div class="col-sm">
-                        @if ($block->published == 1)
+                    @if ($block->published == 1)
 
                         <span class="badge badge-success">Опубликованно</span>
-                        @else
+                    @else
                         <span class="badge badge-danger">Не опубликованно</span>
-                        @endif
+                    @endif
                 </div>
             </div>
             <hr>
