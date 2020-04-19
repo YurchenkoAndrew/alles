@@ -4,7 +4,7 @@
         @component('admin.components.breadcrumbs')
             @slot('title') Редактирование @endslot
             @slot('home') Главная @endslot
-            @slot('active') Слайд @endslot
+            @slot('active') Слайдер @endslot
         @endcomponent
         <hr>
         <form action="{{route('admin.block.update', $block)}}" method="post">
