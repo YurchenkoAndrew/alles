@@ -8,7 +8,7 @@
             @slot('active'){{$slide->title}} @endslot
         @endcomponent
         <hr>
-        <form action="{{route('admin.slides.update', $slide)}}" method="post">
+        <form action="{{route('admin.slides.update', $slide)}}" method="post" enctype="multipart/form-data">
             @method('PATCH')
             {{@csrf_field()}}
             @include('admin.slides._form')

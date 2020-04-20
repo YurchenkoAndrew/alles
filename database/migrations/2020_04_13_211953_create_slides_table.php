@@ -20,7 +20,7 @@ class CreateSlidesTable extends Migration
             $table->string('slogan');
             $table->string('description');
             $table->string('image');
-            $table->unsignedTinyInteger('published')->default('0');
+            $table->unsignedTinyInteger('published');
             $table->timestamps();
         });
     }

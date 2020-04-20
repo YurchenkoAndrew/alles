@@ -33,7 +33,7 @@
             </tr>
             <tr>
                 <th scope="row">Изображение</th>
-                <td>{{$slide->image}}</td>
+                <td><img src="{{asset($slide->image)}}" alt="{{$slide->title}}"></td>
             </tr>
             <tr>
                 <th scope="row">Публикация</th>
@@ -49,7 +49,8 @@
             </tbody>
         </table>
         <hr>
-        <a href="{{route('admin.slides.edit', $slide)}}" class="btn btn-primary">Править</a>
-        <a href="#" class="btn btn-danger">Удалить</a>
+        <a href="{{route('admin.slides.edit', $slide)}}" class="btn btn-primary m-1">Редактировать</a>
+        <button type="button" class="btn btn-danger m-1" data-toggle="modal" data-target="#modalDelete">Удалить</button>
     </div>
+    @include('admin.slides._modal-delete')
 @endsection

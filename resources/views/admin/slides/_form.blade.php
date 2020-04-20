@@ -13,24 +13,28 @@
 <div class="form-group row">
     <label for="inputSlogan" class="col-sm-2 col-form-label">Подзаголовок</label>
     <div class="col-sm-10">
-        <input type="text" name="slogan" class="form-control" id="inputSlogan" value="{{$slide->slogan ?? ""}}" required>
+        <input type="text" name="slogan" class="form-control" id="inputSlogan" value="{{$slide->slogan ?? ""}}"
+               required>
     </div>
 </div>
 <div class="form-group row">
     <label for="inputDescription" class="col-sm-2 col-form-label">Описание</label>
     <div class="col-sm-10">
-        <input type="text" name="description" class="form-control" id="inputDescription" value="{{$slide->description ?? ""}}" required>
+        <input type="text" name="description" class="form-control" id="inputDescription"
+               value="{{$slide->description ?? ""}}" required>
     </div>
 </div>
 @if (isset($slide->image))
     <div class="form-group row">
         <label for="image" class="col-sm-2 col-form-label">Существующее изображение</label>
-        <div><img style="width: 400px" src="/image/Slider01.png" alt="slide"></div>
+        <div><img src="{{asset($slide->image)}}" alt="{{$slide->title}}"></div>
     </div>
 @endif
 <div class="form-group row">
     <label for="image" class="col-sm-2 col-form-label">Изображение</label>
-    <input type="file" class="form-control-file col-sm-10" id="image" name="image" required>
+    <input type="file" class="form-control-file col-sm-10" id="image" name="image" @if (!isset($slide->image))
+    required
+        @endif>
     <div class="invalid-feedback">Example invalid custom file feedback</div>
 </div>
 
@@ -62,13 +66,13 @@
             <legend class="col-form-label col-sm-2 pt-0">Публикация</legend>
             <div class="col-sm-10">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="published" id="published" value="1">
+                    <input class="form-check-input" type="radio" name="published" id="published" value=1 checked>
                     <label class="form-check-label" for="published">
                         Опубликовано
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="published" id="unpublished" value="0" checked>
+                    <input class="form-check-input" type="radio" name="published" id="unpublished" value=0>
                     <label class="form-check-label" for="unpublished">
                         Не опубликовано
                     </label>

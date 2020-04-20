@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Slide;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SlideController extends Controller
 {
@@ -37,7 +38,10 @@ class SlideController extends Controller
      */
     public function store(Request $request)
     {
-        Slide::create($request->all());
+        $path = $request->file('image')->store('image', 'public-images');
+        $params = $request->all();
+        $params['image'] = $path;
+        Slide::create($params);
         return redirect()->route('admin.slides.index');
     }
 
@@ -68,22 +72,35 @@ class SlideController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Admin\Slide  $slide
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, Slide $slide)
     {
-        $slide->update($request->toArray());
-        return redirect('admin.slides.index');
+//        dd($slide->image);
+        if ($request->file('image') != null){
+            Storage::disk('public-images')->delete($slide->image);
+            $path = $request->file('image')->store('image', 'public-images');
+            $params = $request->all();
+            $params['image'] = $path;
+            $slide->update($params);
+        }
+        else{
+            $slide->update($request->toArray());
+        }
+        return redirect()->route('admin.slides.show', $slide);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Admin\Slide  $slide
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Slide $slide)
     {
-        //
+        Storage::disk('public-images')->delete($slide->image);
+        $slide->delete();
+        $slides = Slide::all();
+        return redirect()->route('admin.slides.index', compact('slides'));
     }
 }
