@@ -26,7 +26,7 @@
                                "{{route('admin.slides.index')}}"
                         @endif
                         @if ($block->id == 2)
-                            "#"
+                            "{{route('admin.why-are-we.index')}}"
                         @endif
                         @if ($block->id == 3)
                             "#"

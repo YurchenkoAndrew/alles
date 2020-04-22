@@ -76,7 +76,6 @@ class SlideController extends Controller
      */
     public function update(Request $request, Slide $slide)
     {
-//        dd($slide->image);
         if ($request->file('image') != null){
             Storage::disk('public-images')->delete($slide->image);
             $path = $request->file('image')->store('image', 'public-images');
