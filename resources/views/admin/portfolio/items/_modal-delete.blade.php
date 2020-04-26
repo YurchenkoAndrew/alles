@@ -1,6 +1,6 @@
 
 <!-- Modal -->
-<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDeletelLabel" aria-hidden="true">
+<div class="modal fade" id="modalDeleteItem" tabindex="-1" role="dialog" aria-labelledby="modalDeletelLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -10,11 +10,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h5 class="text-danger">Вы уверены, что хотите удалить данный слайд?</h5>
+                <h5 class="text-danger">Вы уверены, что хотите удалить данную запись?</h5>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-                <form action="{{route('admin.slides.destroy', $slide)}}" method="POST">
+                <form action="{{route('admin.portfolio-item.destroy', $item)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <input type="submit" class="btn btn-danger" value="Удалить">

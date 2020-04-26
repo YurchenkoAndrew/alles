@@ -40,7 +40,6 @@
                     <td>
                         <a href="{{route('admin.slides.show', $slide)}}" class="btn btn-outline-success m-1" title="Смотреть"><i class="fas fa-eye"></i></a>
                         <a href="{{route('admin.slides.edit', $slide)}}" class="btn btn-outline-primary m-1" title="Радактировать"><i class="fas fa-pencil-alt"></i></a>
-{{--                        <a href="#" class="btn btn-outline-danger m-1" title="Удалить"><i class="fas fa-trash-alt"></i></a>--}}
                         <button type="button" class="btn btn-outline-danger m-1" data-toggle="modal" data-target="#modalDelete" title="Удалить"><i class="fas fa-trash-alt"></i></button>
                     </td>
                 </tr>

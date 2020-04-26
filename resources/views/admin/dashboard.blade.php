@@ -15,10 +15,9 @@
                     <th scope="row"><a href="{{route('admin.block.edit', $block)}}">{{$block->title}}</a></th>
                     <td>
                         @if ($block->published == 1)
-
-                            <span class="badge badge-success">Опубликованно</span>
+                            <h1><span class="badge badge-success m-1"><i class="fas fa-check"></i></span></h1>
                         @else
-                            <span class="badge badge-danger">Не опубликованно</span>
+                            <<h1><span class="badge badge-danger m-1"><i class="fas fa-ban"></i></span></h1>
                         @endif
                     </td>
                     <td><a href=
@@ -29,7 +28,7 @@
                             "{{route('admin.why-are-we.index')}}"
                         @endif
                         @if ($block->id == 3)
-                            "#"
+                            "{{route('admin.portfolio.index')}}"
                         @endif
                         @if ($block->id == 4)
                             "#"
@@ -49,7 +48,7 @@
                         @if ($block->id == 9)
                             "#"
                         @endif
-                        class="btn btn-outline-primary">Редактировать</a>
+                        class="btn btn-outline-primary">Изменить</a>
                     </td>
                 </tr>
             @endforeach

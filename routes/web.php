@@ -17,6 +17,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::resource('/block', 'BlockController', ['as' => 'admin']);
     Route::resource('/slides', 'SlideController', ['as' => 'admin']);
     Route::resource('/why-are-we', 'WhyAreWeController', ['as' => 'admin']);
+    Route::resource('/portfolio', 'PortfolioController', ['as' => 'admin']);
+    Route::resource('/portfolio-title', 'PortfolioTitleController', ['as' => 'admin']);
+    Route::resource('/portfolio-item', 'PortfolioItemController', ['as' => 'admin']);
 });
 
 Route::get('/', function () {

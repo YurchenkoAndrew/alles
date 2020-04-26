@@ -13,17 +13,17 @@
             <hr>
             <div class="row">
                 <div class="col-md" align="center">
-                    <img style="width: 200px; height: 200px" src="{{asset($con->image_service_1)}}" alt="{{$con->title_service_1}}">
+                    <img style="width: 100%; max-width: 360px; max-height: 360px" src="{{asset($con->image_service_1)}}" alt="{{$con->title_service_1}}">
                     <h2>{{$con->title_service_1}}</h2>
                     <p>{{$con->description_service_1}}</p>
                 </div>
                 <div class="col-md" align="center">
-                    <img style="width: 200px; height: 200px" src="{{asset($con->image_service_2)}}" alt="{{$con->title_service_2}}">
+                    <img style="width: 100%; max-width: 360px; max-height: 360px" src="{{asset($con->image_service_2)}}" alt="{{$con->title_service_2}}">
                     <h2>{{$con->title_service_2}}</h2>
                     <p>{{$con->description_service_2}}</p>
                 </div>
                 <div class="col-md" align="center">
-                    <img style="width: 200px; height: 200px" src="{{asset($con->image_service_3)}}" alt="{{$con->title_service_3}}">
+                    <img style="width: 100%; max-width: 360px; max-height: 360px" src="{{asset($con->image_service_3)}}" alt="{{$con->title_service_3}}">
                     <h2>{{$con->title_service_3}}</h2>
                     <p>{{$con->description_service_3}}</p>
                 </div>

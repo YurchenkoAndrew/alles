@@ -33,7 +33,9 @@
             </tr>
             <tr>
                 <th scope="row">Изображение</th>
-                <td><img src="{{asset($slide->image)}}" alt="{{$slide->title}}"></td>
+                <td>
+                    <img style="width: 100%; max-width: 740px; max-height: 660px" src="{{asset($slide->image)}}" alt="{{$slide->title}}">
+                </td>
             </tr>
             <tr>
                 <th scope="row">Публикация</th>
