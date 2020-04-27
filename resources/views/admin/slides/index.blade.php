@@ -2,9 +2,9 @@
 @section('content')
     <div class="container">
         @component('admin.components.breadcrumbs')
-            @slot('title') Слайдер @endslot
+            @slot('title') {{$block->title}} @endslot
             @slot('home') Главная @endslot
-            @slot('active') Слайдер @endslot
+            @slot('active') {{$block->title}} @endslot
         @endcomponent
         <hr>
             <a href="{{route('admin.slides.create')}}" class="btn btn-success">Создать <i class="fa fa-plus"></i></a>

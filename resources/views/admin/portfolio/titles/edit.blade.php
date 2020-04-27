@@ -4,7 +4,7 @@
         @component('admin.components.breadcrumbs-portfolio')
             @slot('title') Редактирование @endslot
             @slot('home') Главная @endslot
-            @slot('category') Портфолио @endslot
+            @slot('category') {{$block->title}} @endslot
             @slot('active') Заголовки @endslot
         @endcomponent
         <hr>

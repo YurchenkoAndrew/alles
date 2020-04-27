@@ -2,9 +2,9 @@
 @section('content')
     <div class="container">
         @component('admin.components.breadcrumbs')
-            @slot('title') Портфолио @endslot
+            @slot('title') Блок {{$block->title}} @endslot
             @slot('home') Главная @endslot
-            @slot('active') Портфолио @endslot
+            @slot('active') {{$block->title}} @endslot
         @endcomponent
         <hr>
             <a href="{{route('admin.portfolio-title.edit', $portfolioTitle)}}" class="btn btn-primary m-1"><i
@@ -41,6 +41,7 @@
             </table>
         </div>
         <hr>
+            <h3 align="center">Секции {{$block->title}}</h3>
             <a href="{{route('admin.portfolio-item.create')}}" class="btn btn-success m-1"><i class="fas fa-plus"></i> Добавить секцию</a>
         <table class="table table-hover">
             <thead class="thead-dark">

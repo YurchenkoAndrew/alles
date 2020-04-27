@@ -2,9 +2,9 @@
 @section('content')
     <div class="container">
         @component('admin.components.breadcrumbs-portfolio')
-            @slot('title') Редактирование @endslot
+            @slot('title') {{$portfolioItem->title}} @endslot
             @slot('home') Главная @endslot
-            @slot('category') Портфолио @endslot
+            @slot('category') {{$block->title}} @endslot
             @slot('active') Секции @endslot
         @endcomponent
         <hr>

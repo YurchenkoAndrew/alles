@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Block;
 use App\Models\Admin\Portfolio;
 use App\Models\Admin\PortfolioItem;
 use Illuminate\Http\Request;
@@ -27,10 +28,11 @@ class PortfolioItemController extends Controller
      */
     public function create()
     {
+        $block = Block::find(3);
         $portfolioItem = [];
         $filters = Portfolio::get()->sortBy('sort');
         $count = PortfolioItem::all()->count() + 1;
-        return view('admin.portfolio.items.create', compact('portfolioItem', 'filters', 'count'));
+        return view('admin.portfolio.items.create', compact('portfolioItem', 'filters', 'count', 'block'));
     }
 
     /**
@@ -56,9 +58,9 @@ class PortfolioItemController extends Controller
      */
     public function show(PortfolioItem $portfolioItem)
     {
-//        $item = PortfolioItem::find($portfolioItem->id);
+        $block = Block::find(3);
         $item = PortfolioItem::with('filter')->where('id', $portfolioItem->id)->first();
-        return view('admin.portfolio.items.show', compact('item'));
+        return view('admin.portfolio.items.show', compact('item', 'block'));
     }
 
     /**
@@ -69,9 +71,10 @@ class PortfolioItemController extends Controller
      */
     public function edit(PortfolioItem $portfolioItem)
     {
+        $block = Block::find(3);
         $portfolioItem = PortfolioItem::with('filter')->where('id', $portfolioItem->id)->first();
         $filters = Portfolio::get()->sortBy('sort');
-        return view('admin.portfolio.items.edit', compact('portfolioItem', 'filters'));
+        return view('admin.portfolio.items.edit', compact('portfolioItem', 'filters', 'block'));
     }
 
     /**

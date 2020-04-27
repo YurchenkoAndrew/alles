@@ -4,7 +4,7 @@
         @component('admin.components.breadcrumbs-portfolio')
             @slot('title') Добаление скции @endslot
             @slot('home') Главная @endslot
-            @slot('category') Портфолио @endslot
+            @slot('category') {{$block->title}} @endslot
             @slot('active') Секции @endslot
         @endcomponent
         <hr>

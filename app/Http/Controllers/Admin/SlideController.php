@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Block;
 use App\Models\Admin\Slide;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -16,8 +17,9 @@ class SlideController extends Controller
      */
     public function index()
     {
+        $block = Block::find(1);
         $slides = Slide::all();
-        return view('admin.slides.index', compact('slides'));
+        return view('admin.slides.index', compact('slides', 'block'));
     }
 
     /**
@@ -53,7 +55,8 @@ class SlideController extends Controller
      */
     public function show(Slide $slide)
     {
-        return view('admin.slides.show', compact('slide'));
+        $block = Block::find(1);
+        return view('admin.slides.show', compact('slide', 'block'));
     }
 
     /**
@@ -64,7 +67,8 @@ class SlideController extends Controller
      */
     public function edit(Slide $slide)
     {
-        return view('admin.slides.edit', compact('slide'));
+        $block = Block::find(1);
+        return view('admin.slides.edit', compact('slide', 'block'));
     }
 
     /**

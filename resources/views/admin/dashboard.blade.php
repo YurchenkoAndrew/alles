@@ -31,7 +31,7 @@
                             "{{route('admin.portfolio.index')}}"
                         @endif
                         @if ($block->id == 4)
-                            "#"
+                            "{{route('admin.who-we-are.index')}}"
                         @endif
                         @if ($block->id == 5)
                             "#"

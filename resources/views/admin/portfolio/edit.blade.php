@@ -2,10 +2,10 @@
 @section('content')
     <div class="container">
         @component('admin.components.breadcrumbs-portfolio')
-            @slot('title') Редактирование @endslot
+            @slot('title') {{$portfolio->filter_name}} @endslot
             @slot('home') Главная @endslot
-            @slot('category') Портфолио @endslot
-            @slot('active') Фильтры @endslot
+            @slot('category') {{$block->title}} @endslot
+            @slot('active') Фильтр @endslot
         @endcomponent
         <hr>
             <form action="{{route('admin.portfolio.update', $portfolio)}}" method="post" enctype="multipart/form-data">

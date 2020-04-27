@@ -2,9 +2,9 @@
 @section('content')
     <div class="container">
         @component('admin.components.breadcrumbs')
-            @slot('title') Почему мы? @endslot
+            @slot('title') Блок {{$block->title}} @endslot
             @slot('home') Главная @endslot
-            @slot('active') Почему мы? @endslot
+            @slot('active') {{$block->title}} @endslot
         @endcomponent
         <hr>
         @foreach ($content as $con)

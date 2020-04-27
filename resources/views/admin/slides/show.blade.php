@@ -2,9 +2,9 @@
 @section('content')
     <div class="container">
         @component('admin.components.breadcrumbs-slider')
-            @slot('title')Обзор @endslot
+            @slot('title'){{$slide->title}} @endslot
             @slot('home') Главная @endslot
-            @slot('category') Слайдер @endslot
+            @slot('category') {{$block->title}} @endslot
             @slot('active') {{$slide->title}} @endslot
         @endcomponent
         <table class="table table-bordered">

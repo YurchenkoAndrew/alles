@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Block;
 use App\Models\Admin\WhyAreWe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -16,8 +17,9 @@ class WhyAreWeController extends Controller
      */
     public function index()
     {
+        $block = Block::find(2);
         $content = WhyAreWe::all();
-        return view('admin.why-are-we.index', compact('content'));
+        return view('admin.why-are-we.index', compact('content', 'block'));
     }
 
     /**
@@ -27,8 +29,8 @@ class WhyAreWeController extends Controller
      */
     public function create()
     {
-        $content = WhyAreWe::all();
-        return view('admin.why-are-we.index', compact('content'));
+//        $content = WhyAreWe::all();
+//        return view('admin.why-are-we.index', compact('content'));
     }
 
     /**
@@ -61,7 +63,8 @@ class WhyAreWeController extends Controller
      */
     public function edit(WhyAreWe $whyAreWe)
     {
-        return view('admin.why-are-we.edit', compact('whyAreWe'));
+        $block = Block::find(2);
+        return view('admin.why-are-we.edit', compact('whyAreWe', 'block'));
     }
 
     /**

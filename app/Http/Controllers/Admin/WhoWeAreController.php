@@ -4,19 +4,23 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Block;
-use App\Models\Admin\PortfolioTitle;
+use App\Models\Admin\WhoWeAre;
+use App\Models\Admin\WhoWeAreItem;
 use Illuminate\Http\Request;
 
-class PortfolioTitleController extends Controller
+class WhoWeAreController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        //
+        $whoWeAre = WhoWeAre::find(1);
+        $block = Block::find(4);
+        $whoWeAreItems = WhoWeAreItem::all();
+        return view('admin.who-we-are.index', compact('whoWeAre', 'whoWeAreItems', 'block'));
     }
 
     /**
@@ -43,10 +47,10 @@ class PortfolioTitleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Admin\PortfolioTitle  $portfolioTitle
+     * @param  \App\Models\Admin\WhoWeAre  $whoWeAre
      * @return \Illuminate\Http\Response
      */
-    public function show(PortfolioTitle $portfolioTitle)
+    public function show(WhoWeAre $whoWeAre)
     {
         //
     }
@@ -54,35 +58,35 @@ class PortfolioTitleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Admin\PortfolioTitle  $portfolioTitle
+     * @param  \App\Models\Admin\WhoWeAre  $whoWeAre
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit(PortfolioTitle $portfolioTitle)
+    public function edit(WhoWeAre $whoWeAre)
     {
-        $block = Block::find(3);
-        return view('admin.portfolio.titles.edit', compact('portfolioTitle', 'block'));
+        $block = Block::find(4);
+        return view('admin.who-we-are.edit', compact('whoWeAre', 'block'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Admin\PortfolioTitle  $portfolioTitle
+     * @param  \App\Models\Admin\WhoWeAre  $whoWeAre
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, PortfolioTitle $portfolioTitle)
+    public function update(Request $request, WhoWeAre $whoWeAre)
     {
-        $portfolioTitle->update($request->toArray());
-        return redirect(route('admin.portfolio.index'));
+        $whoWeAre->update($request->toArray());
+        return redirect(route('admin.who-we-are.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Admin\PortfolioTitle  $portfolioTitle
+     * @param  \App\Models\Admin\WhoWeAre  $whoWeAre
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PortfolioTitle $portfolioTitle)
+    public function destroy(WhoWeAre $whoWeAre)
     {
         //
     }
