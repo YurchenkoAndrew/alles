@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::resource('/portfolio-item', 'PortfolioItemController', ['as' => 'admin']);
     Route::resource('/who-we-are', 'WhoWeAreController', ['as' => 'admin']);
     Route::resource('/who-we-are-item', 'WhoWeAreItemController', ['as' => 'admin']);
+    Route::resource('/about', 'AboutController', ['as' => 'admin']);
 });
 
 Route::get('/', function () {
