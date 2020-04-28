@@ -28,7 +28,7 @@
 @if (isset($slide->image))
     <div class="form-group row">
         <label for="image" class="col-sm-2 col-form-label">Текущее изображение</label>
-        <div><img style="width: 100%; max-width: 740px; max-height: 660px" src="{{asset($slide->image)}}" alt="{{$slide->title}}"></div>
+        <div class="col-sm-10"><img style="width: 100%; max-width: 740px; max-height: 660px" src="{{asset($slide->image)}}" alt="{{$slide->title}}"></div>
     </div>
 @endif
 <div class="form-group row">

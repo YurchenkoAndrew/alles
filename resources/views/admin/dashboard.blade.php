@@ -37,7 +37,7 @@
                             "{{route('admin.about.index')}}"
                         @endif
                         @if ($block->id == 6)
-                            "#"
+                            "{{route('admin.comment.index')}}"
                         @endif
                         @if ($block->id == 7)
                             "#"
