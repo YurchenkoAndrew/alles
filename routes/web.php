@@ -25,6 +25,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
     Route::resource('/about', 'AboutController', ['as' => 'admin']);
     Route::resource('/comment', 'CommentController', ['as' => 'admin']);
     Route::resource('/comment-item', 'CommentItemController', ['as' => 'admin']);
+    Route::resource('/client', 'ClientController', ['as' => 'admin']);
+    Route::resource('/client-item', 'ClientItemController', ['as' => 'admin']);
+    Route::resource('/contact', 'ContactController', ['as' => 'admin']);
 });
 
 Route::get('/', function () {

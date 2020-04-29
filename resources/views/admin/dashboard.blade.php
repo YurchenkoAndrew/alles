@@ -40,10 +40,10 @@
                             "{{route('admin.comment.index')}}"
                         @endif
                         @if ($block->id == 7)
-                            "#"
+                            "{{route('admin.client.index')}}"
                         @endif
                         @if ($block->id == 8)
-                            "#"
+                            "{{route('admin.contact.index')}}"
                         @endif
                         @if ($block->id == 9)
                             "#"
