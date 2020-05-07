@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string image_service_1
  * @property string image_service_2
  * @property string image_service_3
+ * @method static find(int $int)
  */
 class WhyAreWe extends Model
 {

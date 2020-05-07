@@ -17,7 +17,7 @@
                         @if ($block->published == 1)
                             <h1><span class="badge badge-success m-1"><i class="fas fa-check"></i></span></h1>
                         @else
-                            <<h1><span class="badge badge-danger m-1"><i class="fas fa-ban"></i></span></h1>
+                            <h1><span class="badge badge-danger m-1"><i class="fas fa-ban"></i></span></h1>
                         @endif
                     </td>
                     <td><a href=

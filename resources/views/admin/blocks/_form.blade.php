@@ -24,7 +24,12 @@
             </div>
         </div>
     </div>
-</fieldset>
+</fieldset><div class="form-group row">
+    <label for="inputSlug" class="col-sm-2 col-form-label">Название</label>
+    <div class="col-sm-10">
+        <input type="text" name="slug" class="form-control" id="inputSlug" value="{{$block->slug}}" readonly>
+    </div>
+</div>
 <div class="form-group row">
     <div class="col-sm-10">
         <button type="submit" class="btn btn-success">Сохранить</button>

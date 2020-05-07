@@ -20,6 +20,7 @@
 <!--[if IE 7]>
     <link rel="stylesheet" type="text/css" href="{{asset('css/pluton-ie7.css')}}" />
     <![endif]-->
+    <link href="{{ asset('css/fontawesome-free-5.13.0-web/css/all.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset('css/jquery.cslider.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('css/jquery.bxslider.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('css/animate.css')}}"/>
