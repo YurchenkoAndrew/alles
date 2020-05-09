@@ -38,4 +38,5 @@ Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'IndexController@index')->name('index');
-Route::post('/send-mail', 'MailSendController@sendMessage');
+Route::post('send-mail', 'MailSendController@sendMessage')->name('send-mail');
+Route::get('/send-ok', function (){return view('send-ok');})->name('send-ok');

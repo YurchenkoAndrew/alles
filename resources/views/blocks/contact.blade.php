@@ -29,28 +29,24 @@
                             <div class="control-group">
                                 <div class="controls">
                                     <input class="span12" type="text" id="name" name="name"
-                                           placeholder="* Your name..."/>
-                                    <div class="error left-align" id="err-name">Please enter name.</div>
+                                           placeholder="* Ваше имя..." required/>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <div class="controls">
                                     <input class="span12" type="email" name="email" id="email"
-                                           placeholder="* Your email..."/>
-                                    <div class="error left-align" id="err-email">Please enter valid email adress.
-                                    </div>
+                                           placeholder="* Ваш email..." required/>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <div class="controls">
                                         <textarea class="span12" name="comment" id="comment"
-                                                  placeholder="* Comments..."></textarea>
-                                    <div class="error left-align" id="err-comment">Please enter your comment.</div>
+                                                  placeholder="* Комментарий..." required></textarea>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <div class="controls">
-                                    <button id="send-mail" class="message-btn">Send message</button>
+                                    <button type="submit" class="message-btn">Отправить сообщение</button>
                                 </div>
                             </div>
                         </form>

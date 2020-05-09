@@ -13,5 +13,6 @@ class MailSendController extends Controller
         $email = $request->email;
         $comment = $request->comment;
         Mail::to('andrew@wsa.kz')->send(new \App\Mail\Mail($name, $email, $comment));
+        return redirect(route('send-ok'));
     }
 }
