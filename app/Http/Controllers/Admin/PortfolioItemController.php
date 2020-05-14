@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PortfolioItemRequest;
 use App\Models\Admin\Block;
 use App\Models\Admin\Portfolio;
 use App\Models\Admin\PortfolioItem;
@@ -41,8 +42,9 @@ class PortfolioItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(PortfolioItemRequest $request)
     {
+        $validated = $request->validated();
         $path = $request->file('image')->store('image', 'public-images');
         $params = $request->all();
         $params['image'] = $path;
@@ -84,8 +86,9 @@ class PortfolioItemController extends Controller
      * @param  \App\Models\Admin\PortfolioItem  $portfolioItem
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, PortfolioItem $portfolioItem)
+    public function update(PortfolioItemRequest $request, PortfolioItem $portfolioItem)
     {
+        $validated = $request->validated();
         if ($request->file('image') != null){
             Storage::disk('public-images')->delete($portfolioItem->image);
             $path = $request->file('image')->store('image', 'public-images');

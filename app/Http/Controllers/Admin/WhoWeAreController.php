@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\WhoWeAreRequest;
 use App\Models\Admin\Block;
 use App\Models\Admin\WhoWeAre;
 use App\Models\Admin\WhoWeAreItem;
@@ -74,8 +75,9 @@ class WhoWeAreController extends Controller
      * @param  \App\Models\Admin\WhoWeAre  $whoWeAre
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, WhoWeAre $whoWeAre)
+    public function update(WhoWeAreRequest $request, WhoWeAre $whoWeAre)
     {
+        $validated = $request->validated();
         $whoWeAre->update($request->toArray());
         return redirect(route('admin.who-we-are.index'));
     }

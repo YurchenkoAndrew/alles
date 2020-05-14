@@ -26,12 +26,12 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{$whoWeAreItem->instagram}}">
+                                <a href="{{$whoWeAreItem->instagram}}" target="_blank">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{$whoWeAreItem->vkontakte}}">
+                                <a href="{{$whoWeAreItem->vkontakte}}" target="_blank">
                                     <i class="fab fa-vk"></i>
                                 </a>
                             </li>

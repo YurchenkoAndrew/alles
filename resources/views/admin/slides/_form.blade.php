@@ -1,13 +1,15 @@
 <div class="form-group row">
     <label for="inputSort" class="col-sm-2 col-form-label">Сортировка</label>
     <div class="col-sm-10">
-        <input type="number" name="sort" class="form-control" id="inputSort" value="{{$slide->sort ?? ""}}" required>
+        <input type="number" name="sort" class="form-control" id="inputSort" value="{{$slide->sort ?? $items}}" required>
+        @error('sort')<div class="alert alert-danger">{{$message}}</div>@enderror
     </div>
 </div>
 <div class="form-group row">
     <label for="inputTitle" class="col-sm-2 col-form-label">Заголовок</label>
     <div class="col-sm-10">
         <input type="text" name="title" class="form-control" id="inputTitle" value="{{$slide->title ?? ""}}" required>
+        @error('title')<div class="alert alert-danger">{{$message}}</div>@enderror
     </div>
 </div>
 <div class="form-group row">
@@ -15,6 +17,7 @@
     <div class="col-sm-10">
         <input type="text" name="slogan" class="form-control" id="inputSlogan" value="{{$slide->slogan ?? ""}}"
                required>
+        @error('slogan')<div class="alert alert-danger">{{$message}}</div>@enderror
     </div>
 </div>
 <div class="form-group row">
@@ -22,6 +25,7 @@
     <div class="col-sm-10">
         <input type="text" name="description" class="form-control" id="inputDescription"
                value="{{$slide->description ?? ""}}" required>
+        @error('description')<div class="alert alert-danger">{{$message}}</div>@enderror
     </div>
 </div>
 
@@ -32,11 +36,11 @@
     </div>
 @endif
 <div class="form-group row">
-    <label for="image" class="col-sm-2 col-form-label">Новое изображение</label>
+    <label for="image" class="col-sm-2 col-form-label">Новое изображение <br> <span class="badge badge-danger">min = 460x360<br></br>max = 920x720</span></label>
     <input type="file" class="form-control-file col-sm-10" id="image" name="image" @if (!isset($slide->image))
     required
         @endif>
-    <div class="invalid-feedback">Example invalid custom file feedback</div>
+    @error('image')<div class="alert alert-danger">{{$message}}</div>@enderror
 </div>
 
 @if (isset($slide->id))

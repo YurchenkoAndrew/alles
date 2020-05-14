@@ -45,9 +45,6 @@
                         @if ($block->id == 8)
                             "{{route('admin.contact.index')}}"
                         @endif
-                        @if ($block->id == 9)
-                            "#"
-                        @endif
                         class="btn btn-outline-primary">Изменить</a>
                     </td>
                 </tr>

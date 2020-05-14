@@ -5,7 +5,7 @@
     position: relative;
     margin:0 auto;
     overflow: hidden;
-    background: transparent url(../images/Slider.png) repeat-x 0% center; /* Replace with your background image*/
+    background: transparent url(../image/Slider.png) repeat-x 0% center; /* Replace with your background image*/
     background-size:auto 100%;
     -webkit-transition: background-position 1s ease-out 0.3s;
     -moz-transition: background-position 1s ease-out 0.3s;
@@ -170,12 +170,12 @@
 }
 .da-arrows span.da-arrows-prev {
     left: 15px;
-    background:transparent url(../images/Left.png) no-repeat center center;
+    background:transparent url(../image/Left.png) no-repeat center center;
 }
 .da-arrows span.da-arrows-next {
     right: 15px;
-    background:transparent url(../images/Right.png) no-repeat center center;
-    
+    background:transparent url(../image/Right.png) no-repeat center center;
+
 }
 .da-slide-current h2, .da-slide-current h4, .da-slide-current p, .da-slide-current .da-link {
     left: 10%;
@@ -1271,27 +1271,27 @@
         font-size: 28px;
          top:40px;
     }
-    
+
      .da-slide h4 {
         font-size: 18px;
         top: 80px;
     }
-    
+
     .da-slide p {
         font-size: 14px;
         line-height:16px;
-        
+
         top:120px;
     }
-    
+
     .da-slide .da-img {
         top:80px;
         line-height:100px;
-    } 
-    
+    }
+
     .da-slide .da-link {
         top:65%;
-    }   
+    }
 }
 
 @media (max-width: 767px) {
@@ -1299,24 +1299,24 @@
         font-size: 20px;
         top:40px;
     }
-    
+
      .da-slide h4 {
         font-size: 16px;
         top:80px;
     }
-    
+
     .da-slide p {
         display:none;
     }
     .da-slide .da-img {
         top:50px;
-        width:30%;    
-    }  
+        width:30%;
+    }
     .da-slide .da-link{
         margin:0;
         font-size:12px;
-        top:150px; 
-    }  
+        top:150px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1328,12 +1328,12 @@
         font-size: 14px;
         top: 70px;
     }
-    
+
     .da-slide .da-img {
         display:none;
-    } 
-    
+    }
+
     .da-slide .da-link {
         display:none;
-    } 
+    }
 }

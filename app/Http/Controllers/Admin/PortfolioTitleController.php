@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PortfolioTitleRequest;
 use App\Models\Admin\Block;
 use App\Models\Admin\PortfolioTitle;
 use Illuminate\Http\Request;
@@ -70,8 +71,9 @@ class PortfolioTitleController extends Controller
      * @param  \App\Models\Admin\PortfolioTitle  $portfolioTitle
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, PortfolioTitle $portfolioTitle)
+    public function update(PortfolioTitleRequest $request, PortfolioTitle $portfolioTitle)
     {
+        $validated = $request->validated();
         $portfolioTitle->update($request->toArray());
         return redirect(route('admin.portfolio.index'));
     }

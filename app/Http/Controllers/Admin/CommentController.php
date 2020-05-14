@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CommentTitleRequest;
 use App\Models\Admin\Block;
 use App\Models\Admin\Comment;
 use App\Models\Admin\CommentItem;
@@ -74,8 +75,9 @@ class CommentController extends Controller
      * @param  \App\Models\Admin\Comment  $comment
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, Comment $comment)
+    public function update(CommentTitleRequest $request, Comment $comment)
     {
+        $validated = $request->validated();
         $comment->update($request->toArray());
         return redirect(route('admin.comment.index'));
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ClientItemRequest;
 use App\Models\Admin\Block;
 use App\Models\Admin\ClientItem;
 use Illuminate\Http\Request;
@@ -39,8 +40,9 @@ class ClientItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(ClientItemRequest $request)
     {
+        $validated = $request->validated();
         $path = $request->file('image')->store('image', 'public-images');
         $params = $request->all();
         $params['image'] = $path;
@@ -78,8 +80,9 @@ class ClientItemController extends Controller
      * @param  \App\Models\Admin\ClientItem  $clientItem
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, ClientItem $clientItem)
+    public function update(ClientItemRequest $request, ClientItem $clientItem)
     {
+        $validated = $request->validated();
         if ($request->file('image') != null){
             Storage::disk('public-images')->delete($clientItem->image);
             $path = $request->file('image')->store('image', 'public-images');

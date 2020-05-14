@@ -2,6 +2,7 @@
     <label for="inputTitle" class="col-sm-2 col-form-label">Название</label>
     <div class="col-sm-10">
         <input type="text" name="title" class="form-control" id="inputTitle" value="{{$block->title}}" required>
+        @error('title')<div class="alert alert-danger">{{$message}}</div>@enderror
     </div>
 </div>
 <fieldset class="form-group">
@@ -24,7 +25,8 @@
             </div>
         </div>
     </div>
-</fieldset><div class="form-group row">
+</fieldset>
+<div class="form-group row">
     <label for="inputSlug" class="col-sm-2 col-form-label">Название</label>
     <div class="col-sm-10">
         <input type="text" name="slug" class="form-control" id="inputSlug" value="{{$block->slug}}" readonly>

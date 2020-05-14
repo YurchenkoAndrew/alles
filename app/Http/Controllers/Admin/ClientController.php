@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ClientTitleRequest;
 use App\Models\Admin\Block;
 use App\Models\Admin\Client;
 use App\Models\Admin\ClientItem;
@@ -72,10 +73,11 @@ class ClientController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Admin\Client  $client
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, Client $client)
+    public function update(ClientTitleRequest $request, Client $client)
     {
+        $validated = $request->validated();
         $client->update($request->toArray());
         return redirect(route('admin.client.index'));
     }

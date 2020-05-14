@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\WhyAreWeRequest;
 use App\Models\Admin\Block;
 use App\Models\Admin\WhyAreWe;
 use Illuminate\Http\Request;
@@ -74,8 +75,9 @@ class WhyAreWeController extends Controller
      * @param  \App\Models\Admin\WhyAreWe  $whyAreWe
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, WhyAreWe $whyAreWe)
+    public function update(WhyAreWeRequest $request, WhyAreWe $whyAreWe)
     {
+        $validated = $request->validated();
         if ($request->file('image_service_1') != null || $request->file('image_service_2') != null || $request->file('image_service_3') != null){
         $params = $request->all();
         if ($request->file('image_service_1') != null){

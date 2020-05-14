@@ -23,14 +23,14 @@
                 </thead>
                 <tbody>
                 <tr>
-                    @foreach ($portfolios as $portfolio)
+                    @foreach ($filters as $filter)
                         <td>
-                            <h4>{{$portfolio->sort}}) {{$portfolio->filter_name}}</h4>
+                            <h4>{{$filter->sort}}) {{$filter->filter_name}}</h4>
                             <div align="right" style="float: right">
-                                <a href="{{route('admin.portfolio.show', $portfolio)}}"
+                                <a href="{{route('admin.portfolio.show', $filter)}}"
                                    class="btn btn-outline-success m-1"
                                    title="Смотреть"><i class="fas fa-eye"></i></a>
-                                <a href="{{route('admin.portfolio.edit', $portfolio)}}"
+                                <a href="{{route('admin.portfolio.edit', $filter)}}"
                                    class="btn btn-outline-primary m-1"
                                    title="Радактировать"><i class="fas fa-pencil-alt"></i></a>
                             </div>
@@ -54,12 +54,10 @@
             </tr>
             </thead>
             <tbody>
-            @foreach ($portfolios as $portfolio)
-                @foreach ($portfolio->items as $item)
+                @foreach ($portfolioItems as $item)
                     <tr>
-                        {{--                        <th scope="row">{{$item->sort}}</th>--}}
                         <td>{{$item->title}}</td>
-                        <td class="visible-md">{{$portfolio->filter_name}}</td>
+                        <td class="visible-md">{{$item->filter->filter_name ?? ''}}</td>
                         <td align="center">
                             @if ($item->published == 1)
 
@@ -78,7 +76,6 @@
                     </tr>
 {{--                    @include('admin.portfolio._modal-delete')--}}
                 @endforeach
-            @endforeach
             </tbody>
         </table>
     </div>

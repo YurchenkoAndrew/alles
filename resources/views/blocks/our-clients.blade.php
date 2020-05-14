@@ -13,9 +13,13 @@
             <ul class="row client-slider" id="clint-slider">
                 @foreach ($clientItems as $clientItem)
                     <li>
-                        <a href="{{$clientItem->link}}" target="_blank">
+                        @if($clientItem->link != null)
+                            <a href="{{$clientItem->link}}" target="_blank">
+                                <img src="{{asset($clientItem->image)}}" alt="{{$clientItem->title}}">
+                            </a>
+                        @else
                             <img src="{{asset($clientItem->image)}}" alt="{{$clientItem->title}}">
-                        </a>
+                        @endif
                     </li>
                 @endforeach
             </ul>

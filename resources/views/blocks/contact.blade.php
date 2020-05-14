@@ -56,7 +56,7 @@
         </div>
         <div class="container">
             <div class="span9 center contact-info">
-                <p>1{{$contact->address}}</p>
+                <p>{{$contact->address}}</p>
                 @if ($contact->email != null)
                     <p class="info-mail">{{$contact->email}}</p>
                 @endif

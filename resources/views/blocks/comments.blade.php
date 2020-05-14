@@ -6,7 +6,9 @@
     @endforeach
 >
     <div class="section primary-section">
+        @if ($about != null)
         <div class="triangle"></div>
+        @endif
         <div class="container">
             <div class="title">
                 <h1>{{$commentTitle->title}}</h1>
@@ -28,10 +30,10 @@
                     </div>
                 @endforeach
             </div>
-            <p class="testimonial-text">
-                "Perfection is Achieved Not When There Is Nothing More to Add, But When There Is Nothing Left to
-                Take Away"
-            </p>
+{{--            <p class="testimonial-text">--}}
+{{--                "Perfection is Achieved Not When There Is Nothing More to Add, But When There Is Nothing Left to--}}
+{{--                Take Away"--}}
+{{--            </p>--}}
         </div>
     </div>
 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ContactsRequest;
 use App\Models\Admin\Block;
 use App\Models\Admin\Contact;
 use Illuminate\Http\Request;
@@ -72,8 +73,9 @@ class ContactController extends Controller
      * @param  \App\Models\Admin\Contact  $contact
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, Contact $contact)
+    public function update(ContactsRequest $request, Contact $contact)
     {
+        $validated = $request->validated();
         $contact->update($request->toArray());
         return redirect(route('admin.contact.index'));
     }

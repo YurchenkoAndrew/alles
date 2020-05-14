@@ -3,11 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="{{$settings->og_image}}">
+    <meta name="description" content="{{$settings->description}}">
+    <meta name="keywords" content="{{$settings->keywords}}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Alles') }}</title>
+    <title>{{$settings->title}}</title>
 
     <!-- Load Roboto font -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet'

@@ -3,6 +3,7 @@
     <label for="inputTitle" class="col-sm-2 col-form-label">Заголовок</label>
     <div class="col-sm-10">
         <input type="text" name="title" class="form-control" id="inputTitle" value="{{$whoWeAre->title ?? ""}}" required>
+        @error('title')<div class="alert alert-danger">{{$message}}</div>@enderror
     </div>
 </div>
 <div class="form-group row">
@@ -10,6 +11,7 @@
     <div class="col-sm-10">
         <input type="text" name="description" class="form-control" id="inputDescription"
                value="{{$whoWeAre->description ?? ""}}" required>
+        @error('description')<div class="alert alert-danger">{{$message}}</div>@enderror
     </div>
 </div>
 

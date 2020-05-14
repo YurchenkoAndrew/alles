@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
     <div class="container">
-        @component('admin.components.breadcrumbs-slider')
+        @component('admin.components.breadcrumbs-about')
             @slot('title') Редактирование @endslot
             @slot('home') Главная @endslot
             @slot('category') {{$block->title}} @endslot

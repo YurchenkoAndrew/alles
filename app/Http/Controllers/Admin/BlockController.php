@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EditBlock;
 use App\Models\Admin\Block;
 use Illuminate\Http\Request;
 
@@ -69,8 +70,9 @@ class BlockController extends Controller
      * @param \App\Models\Admin\Block $block
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, Block $block)
+    public function update(EditBlock $request, Block $block)
     {
+        $validated = $request->validated();
         $block->update($request->toArray());
         return redirect('admin/');
     }

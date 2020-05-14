@@ -10,7 +10,9 @@ use App\Models\Admin\Comment;
 use App\Models\Admin\CommentItem;
 use App\Models\Admin\Contact;
 use App\Models\Admin\Portfolio;
+use App\Models\Admin\PortfolioItem;
 use App\Models\Admin\PortfolioTitle;
+use App\Models\Admin\Setting;
 use App\Models\Admin\Slide;
 use App\Models\Admin\WhoWeAre;
 use App\Models\Admin\WhoWeAreItem;
@@ -26,6 +28,7 @@ class IndexController extends Controller
      */
     public function index()
     {
+        $settings = [];
         $slider = [];
         $whoAreWe = [];
         $portfolios = [];
@@ -39,17 +42,17 @@ class IndexController extends Controller
         $clientItems = [];
         $contact = [];
         $block = Block::all();
+        $settings = Setting::find(1);
         foreach ($block as $item) {
             if ($item->id == 1 && $item->published == 1) {
-                $slider = Slide::all();
+                $slider = Slide::all()->where('published', 1);
             }
             if ($item->id == 2 && $item->published == 1) {
                 $whoAreWe = WhyAreWe::find(1);
             }
             if ($item->id == 3 && $item->published == 1) {
-                $portfolios = Portfolio::with(['items' => function ($query) {
-                    $query->orderBy('sort', 'ASC');
-                }])->orderBy('sort', 'ASC')->get();
+                $filters = Portfolio::with('items')->orderBy('sort', 'ASC')->get();
+                $portfolioItems = PortfolioItem::with('filter')->where('published', 1)->where('portfolio_id', '!=', 'null')->orderBy('sort', 'DESC')->get();
                 $portfolioTitle = PortfolioTitle::find(1);
             }
             if ($item->id == 4 && $item->published == 1) {
@@ -71,6 +74,6 @@ class IndexController extends Controller
                 $contact = Contact::find(1);
             }
         }
-        return view('index', compact('block', 'slider', 'whoAreWe', 'portfolioTitle', 'portfolios', 'whoWeAre', 'whoWeAreItems', 'about', 'commentTitle', 'comments', 'clientTitle', 'clientItems', 'contact'));
+        return view('index', compact('settings','block', 'slider', 'whoAreWe', 'portfolioTitle', 'portfolioItems','filters', 'whoWeAre', 'whoWeAreItems', 'about', 'commentTitle', 'comments', 'clientTitle', 'clientItems', 'contact'));
     }
 }

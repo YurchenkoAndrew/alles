@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AboutRequest;
 use App\Models\Admin\About;
 use App\Models\Admin\Block;
 use Illuminate\Http\Request;
@@ -72,8 +73,9 @@ class AboutController extends Controller
      * @param  \App\Models\Admin\About  $about
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, About $about)
+    public function update(AboutRequest $request, About $about)
     {
+        $validated = $request->validated();
         $about->update($request->toArray());
         return redirect(route('admin.about.index'));
     }

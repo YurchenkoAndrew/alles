@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PortfolioFilterRequest;
 use App\Models\Admin\Block;
 use App\Models\Admin\Portfolio;
+use App\Models\Admin\PortfolioItem;
 use App\Models\Admin\PortfolioTitle;
 use Illuminate\Http\Request;
 
@@ -18,9 +20,10 @@ class PortfolioController extends Controller
     public function index()
     {
         $block = Block::find(3);
-        $portfolios = Portfolio::with(['items' => function($query){$query->orderBy('sort', 'ASC');}])->orderBy('sort', 'ASC')->get();
+        $filters = Portfolio::with('items')->orderBy('sort', 'ASC')->get();
+        $portfolioItems = PortfolioItem::with('filter')->orderBy('sort')->get();
         $portfolioTitle = PortfolioTitle::all()->where('id', 1)->first();
-        return view('admin.portfolio.index', compact('portfolios', 'portfolioTitle', 'block'));
+        return view('admin.portfolio.index', compact('filters','portfolioItems', 'portfolioTitle', 'block'));
     }
 
     /**
@@ -42,8 +45,9 @@ class PortfolioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(PortfolioFilterRequest $request)
     {
+        $validated = $request->validated();
         Portfolio::create($request->all());
         return redirect(route('admin.portfolio.index'));
     }
@@ -79,8 +83,9 @@ class PortfolioController extends Controller
      * @param  \App\Models\Admin\Portfolio  $portfolio
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, Portfolio $portfolio)
+    public function update(PortfolioFilterRequest $request, Portfolio $portfolio)
     {
+        $validated = $request->validated();
         $portfolio->update($request->toArray());
         return redirect(route('admin.portfolio.show', compact('portfolio')));
     }

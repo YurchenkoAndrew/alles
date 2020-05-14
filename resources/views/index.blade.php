@@ -3,8 +3,8 @@
     <div class="navbar">
         <div class="navbar-inner">
             <div class="container">
-                <a href="#" class="brand">
-                    <img src="images/logo.png" width="120" height="40" alt="Logo"/>
+                <a href="{{route('index')}}" class="brand">
+                    <img src="{{$settings->logo}}" width="120" height="40" alt="Logo"/>
                     <!-- This is website logo -->
                 </a>
                 <!-- Navigation button, visible on small resolution -->

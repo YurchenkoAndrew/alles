@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SlideRequest;
 use App\Models\Admin\Block;
 use App\Models\Admin\Slide;
 use Illuminate\Http\Request;
@@ -29,7 +30,8 @@ class SlideController extends Controller
      */
     public function create()
     {
-        return view('admin.slides.create', ['slide' => []]);
+        $items = Slide::all()->count() + 1;
+        return view('admin.slides.create', ['slide' => [], 'items' => $items]);
     }
 
     /**
@@ -38,8 +40,9 @@ class SlideController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(SlideRequest $request)
     {
+        $validated = $request->validated();
         $path = $request->file('image')->store('image', 'public-images');
         $params = $request->all();
         $params['image'] = $path;
@@ -78,8 +81,9 @@ class SlideController extends Controller
      * @param  \App\Models\Admin\Slide  $slide
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Slide $slide)
+    public function update(SlideRequest $request, Slide $slide)
     {
+        $validated = $request->validated();
         if ($request->file('image') != null){
             Storage::disk('public-images')->delete($slide->image);
             $path = $request->file('image')->store('image', 'public-images');

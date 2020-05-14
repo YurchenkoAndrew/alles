@@ -13,6 +13,7 @@
                 >{{$filter->filter_name}}</option>
             @endforeach
         </select>
+        @error('portfolio_id')<div class="alert alert-danger">{{$message}}</div>@enderror
     </div>
 </div>
 {{--input sort--}}
@@ -21,6 +22,7 @@
     <div class="col-sm-10">
         <input type="number" name="sort" class="form-control" id="inputSort" value="{{$portfolioItem->sort ?? $count}}"
                required>
+        @error('sort')<div class="alert alert-danger">{{$message}}</div>@enderror
     </div>
 </div>
 {{--isset image--}}
@@ -33,18 +35,19 @@
 @endif
 {{--input image--}}
 <div class="form-group row">
-    <label for="image" class="col-sm-2 col-form-label">Новое изображение</label>
-    <input type="file" class="form-control-file col-sm-10" id="image" name="image" @if (!isset($portfolioItem->image))
+    <label for="image" class="col-sm-2 col-form-label">Новое изображение <br> <span class="badge badge-danger">640x400</span></label>
+    <input type="file" class="form-control-file col-sm-10" id="image" value="{{old('image')}}" name="image" @if (!isset($portfolioItem->image))
     required
         @endif>
-    <div class="invalid-feedback">Example invalid custom file feedback</div>
+    @error('image')<div class="alert alert-danger">{{$message}}</div>@enderror
 </div>
 {{--inout title--}}
 <div class="form-group row">
     <label for="inputTitle" class="col-sm-2 col-form-label">Заголовок</label>
     <div class="col-sm-10">
         <input type="text" name="title" class="form-control" id="inputTitle"
-               value="{{$portfolioItem->title ?? ""}}" required>
+               value="{{$portfolioItem->title?? old('title') ?? ""}}" required>
+        @error('title')<div class="alert alert-danger">{{$message}}</div>@enderror
     </div>
 </div>
 {{--input description--}}
@@ -52,7 +55,8 @@
     <label for="inputDescription" class="col-sm-2 col-form-label">Описание</label>
     <div class="col-sm-10">
         <textarea type="text" name="description" class="form-control" id="inputDescription" rows="3"
-                  required>{{$portfolioItem->description ?? ""}}</textarea>
+                  required>{{$portfolioItem->description ?? old('description') ??""}}</textarea>
+        @error('description')<div class="alert alert-danger">{{$message}}</div>@enderror
     </div>
 </div>
 {{--input published--}}

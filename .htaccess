@@ -1,0 +1,7 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^(www.)?alles.kz$
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /piblic/$1
+RewriteRule ^(/)?$ /piblic/index.php [L]

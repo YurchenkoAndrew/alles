@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\WhoWeAreItemRequest;
 use App\Models\Admin\Block;
 use App\Models\Admin\WhoWeAreItem;
 use Illuminate\Http\Request;
@@ -71,8 +72,9 @@ class WhoWeAreItemController extends Controller
      * @param \App\Models\Admin\WhoWeAreItem $whoWeAreItem
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, WhoWeAreItem $whoWeAreItem)
+    public function update(WhoWeAreItemRequest $request, WhoWeAreItem $whoWeAreItem)
     {
+        $validated = $request->validated();
         if ($request->file('image') != null) {
             Storage::disk('public-images')->delete($whoWeAreItem->image);
             $path = $request->file('image')->store('image', 'public-images');

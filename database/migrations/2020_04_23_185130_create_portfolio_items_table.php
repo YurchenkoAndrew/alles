@@ -15,8 +15,8 @@ class CreatePortfolioItemsTable extends Migration
     {
         Schema::create('portfolio_items', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('portfolio_id');
-            $table->foreign('portfolio_id')->references('id')->on('portfolios');
+            $table->unsignedBigInteger('portfolio_id')->nullable();
+            $table->foreign('portfolio_id')->references('id')->on('portfolios')->onDelete('set null');
             $table->unsignedBigInteger('sort');
             $table->string('image');
             $table->string('title');
