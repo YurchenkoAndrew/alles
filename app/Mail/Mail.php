@@ -35,7 +35,7 @@ class Mail extends Mailable
      */
     public function build()
     {
-        return $this->from('andrew@wsa.kz', 'Alles')->view('mails.mail-message-template', [
+        return $this->from('bot@allesproducts.kz', 'Alles')->view('mails.mail-message-template', [
             'name' => $this->name,
             'email' => $this->email,
             'comment' => $this->comment

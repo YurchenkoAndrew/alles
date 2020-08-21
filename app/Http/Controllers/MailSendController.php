@@ -14,7 +14,7 @@ class MailSendController extends Controller
         $name = $request->name;
         $email = $request->email;
         $comment = $request->comment;
-        Mail::to('andrew@wsa.kz')->send(new \App\Mail\Mail($name, $email, $comment));
+        Mail::to('info@allesproducts.kz')->send(new \App\Mail\Mail($name, $email, $comment));
 //        dd($settings);
         return view('send-ok', compact('settings'));
     }
