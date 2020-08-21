@@ -32,6 +32,8 @@ class IndexController extends Controller
         $slider = [];
         $whoAreWe = [];
         $portfolios = [];
+        $portfolioItems = [];
+        $filters = [];
         $portfolioTitle = [];
         $whoWeAre = [];
         $whoWeAreItems = [];
