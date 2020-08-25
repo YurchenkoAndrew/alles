@@ -13,8 +13,8 @@
         </div>
         <div class="map-wrapper">
             <div class="map-canvas">
-                <div style="width: 100%; height: 100%; background:rgba(0,0,0,0.25); position: absolute"></div>
-                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad8b0f9f13e1d33870491a187a965b185733db68fc2b755707b2b4acd9b65c99e&amp;source=constructor" width="100%" height="500" frameborder="0"></iframe>
+{{--                <div style="width: 100%; height: 100%; background:rgba(0,0,0,0.25); position: absolute"></div>--}}
+                <<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0da7fb3667f2289636add513d758b16c6fa956c9e29b3b028f77a2caa409eba6&amp;source=constructor" width="100%" height="500" frameborder="0"></iframe>
             </div>
             <div class="container">
                 <div class="row-fluid">
